@@ -1,0 +1,62 @@
+<header>
+  <nav>
+    <div class="nav-left">
+      <a
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/"
+      >
+        <img src="./../../../../assets/icon/logo-company.svg" class="logo" />
+        <p>Plant Comet</p>
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <div class="isLogout" *ngIf="!auth.isLoggedIn">
+        <div class="icon-box-tab">
+          <a class="login__btn" routerLinkActive="active" routerLink="login"
+            >Zaloguj</a
+          >
+          <a
+            class="register__btn"
+            routerLinkActive="active"
+            routerLink="register"
+            >Zarejestruj</a
+          >
+        </div>
+
+        <div class="icon-box-mobile">
+          <img
+            src="./../../../../assets/icon/icon-hamburger.svg"
+            (click)="toggleDropDownMenu()"
+          />
+        </div>
+      </div>
+
+
+
+      <div class="isLogin" *ngIf="auth.isLoggedIn">
+        <div class="icon-box-mobile">
+          <img src="./../../../../assets/icon/icon-search-white.svg" />
+          <img
+            src="./../../../../assets/icon/icon-hamburger.svg"
+            (click)="toggleDropDownMenu()"
+          />
+        </div>
+        <div class="icon-box-tab">
+          <img src="./../../../../assets/icon/icon-settings.svg" routerLink="dashboard" />
+          <img src="./../../../../assets/icon/icon-mail.svg" routerLink="dashboard" />
+          <img src="./../../../../assets/icon/icon-user.svg" routerLink="dashboard" />
+        </div>
+        <div class="user-name" routerLink="dashboard">
+          {{ auth?.user?.email }}
+        </div>
+
+        <a class="logout__btn" (click)="auth.logout()">Wyloguj</a>
+      </div>
+    </div>
+  </nav>
+  <div *ngIf="isDropdownMenuVisible" class="dropdown__menu">
+    <app-drop-down-menu></app-drop-down-menu>
+  </div>
+</header>

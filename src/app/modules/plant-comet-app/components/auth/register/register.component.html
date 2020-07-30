@@ -1,0 +1,81 @@
+<main>
+  <section>
+    <div class="form-box">
+      <form
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        [appMustMatch]="['password', 'confirmPassword']"
+        novalidate
+      >
+        <h1>Zarejestruj się</h1>
+
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Wpisz email"
+          [(ngModel)]="model.email"
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+          required
+          email
+        />
+        <div *ngIf="f.submitted && email.invalid" class="input-error">
+          <div *ngIf="email.errors.required">Email wymagany!</div>
+          <div *ngIf="email.errors.email">
+            Email nie poprawny!
+          </div>
+        </div>
+        <div class="input-error" *ngIf="f.submitted && authService.emailExistsError">
+          Email jest już w bazie
+        </div>
+
+        <label>Hasło:</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Wpisz hasło"
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+          required
+          minlength="6"
+        />
+        <div *ngIf="f.submitted && password.invalid" class="input-error">
+          <div *ngIf="password.errors.required">Hasło wymagane!</div>
+          <div *ngIf="password.errors.minlength">
+            Hasło musi mieć co najmniej 6 znaków!
+          </div>
+        </div>
+        <label>Potwierdź hasło:</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Wpisz hasło"
+          [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.errors }"
+          [(ngModel)]="model.confirmPassword"
+          #confirmPassword="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }"
+          required
+        />
+        <div *ngIf="f.submitted && confirmPassword.invalid" class="input-error">
+          <div *ngIf="confirmPassword.errors.required">
+            Potwierdzenie hasła wymagane!
+          </div>
+          <div *ngIf="confirmPassword.errors.mustMatch">
+            Hasła muszą pasować!
+          </div>
+        </div>
+
+        <button class="button">Zarejestruj się</button>
+        <button class="button" type="reset">Wyczyść</button>
+        <p>
+          Jeżeli masz już konto,
+          <a routerLink="/plant-comet/login">Zaloguj się</a>
+        </p>
+      </form>
+      <aside></aside>
+    </div>
+  </section>
+</main>

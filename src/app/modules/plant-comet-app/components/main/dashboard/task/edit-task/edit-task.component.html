@@ -1,0 +1,77 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+  <h1>Dodaj zadanie</h1>
+  <label>Opis zadania</label>
+  <input
+    type="text"
+    name="taskDescription"
+    placeholder="Opisz zadanie"
+    [(ngModel)]="editedTask.description"
+    #taskDescription="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskDescription.invalid }"
+    required
+    minlength="4"
+  />
+  <div *ngIf="f.submitted && taskDescription.invalid" class="input-error">
+    <div *ngIf="taskDescription.errors.required">Opis wymagany!</div>
+    <div *ngIf="taskDescription.errors.minlength">
+      Opis musi mieć co najmniej 4 znaki!
+    </div>
+  </div>
+  <label>Priorytet</label>
+  <select
+    name="taskPriority"
+    [(ngModel)]="editedTask.priority"
+    #taskPriority="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskPriority.invalid }"
+    required
+  >
+    <option *ngFor="let enum of priority | keyvalue">{{ enum.value }}</option>
+  </select>
+  <div *ngIf="f.submitted && taskPriority.invalid" class="input-error">
+    <div *ngIf="taskPriority.errors.required">Priorytet wymagany!</div>
+  </div>
+  <label>Status</label>
+  <select
+    name="taskStatus"
+    [(ngModel)]="editedTask.status"
+    #taskStatus="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskStatus.invalid }"
+    required
+  >
+    <option *ngFor="let enum of status | keyvalue">{{ enum.value }}</option>
+  </select>
+  <div *ngIf="f.submitted && taskStatus.invalid" class="input-error">
+    <div *ngIf="taskStatus.errors.required">Priorytet wymagany!</div>
+  </div>
+
+  <label>Data rozpoczęcia</label>
+  <input
+    type="date"
+    name="taskStartDate"
+    [ngModel]="editedTask?.startDate?.seconds * 1000 | date:'yyyy-MM-dd'"
+    #taskStartDate="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskStartDate.invalid }"
+    required
+  />
+  <div *ngIf="f.submitted && taskStartDate.invalid" class="input-error">
+    <div *ngIf="taskStartDate.errors.required">Data wymagana!</div>
+  </div>
+
+  <label>Data zakończenia</label>
+  <input
+    type="date"
+    name="taskEndDate"
+    [ngModel]="editedTask?.endDate?.seconds * 1000 | date:'yyyy-MM-dd'"
+    #taskEndDate="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskEndDate.invalid }"
+    required
+  />
+  <div *ngIf="f.submitted && taskEndDate.invalid" class="input-error">
+    <div *ngIf="taskEndDate.errors.required">Data wymagana!</div>
+  </div>
+
+
+  <button class="button" type="submit">
+    Zapisz
+  </button>
+</form>

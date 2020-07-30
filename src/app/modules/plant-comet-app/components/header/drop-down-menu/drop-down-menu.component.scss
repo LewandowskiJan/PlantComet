@@ -1,0 +1,30 @@
+@import 'src/styles/global.scss';
+$button-font-color: white;
+$button-background-color: $dark-background-color-primary;
+$button-background-color-active: $dark-background-color-secondary;
+
+.menu-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    button,
+    div {
+      background-color: $button-background-color;
+      display: flex;
+      height: 50px;
+      width: 100%;
+      color: $button-font-color;
+      border: none;
+    }
+
+    button.active {
+      background-color: rgba($color: $button-background-color-active, $alpha: 0.8) ;
+    }
+  }
+}

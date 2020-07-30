@@ -1,0 +1,22 @@
+nav {
+  background-color: rgba($color: #030205, $alpha: 0.8);
+  color: salmon;
+  height: 22px;
+
+  a {
+    color: lightgray;
+    text-decoration: none;
+    padding: 2px 15px 2px 5px;
+    height: 15px;
+
+    &:hover {
+      color: orange;
+      background-color: slategray;
+    }
+  }
+
+  .active{
+    color: orange;
+    background-color: slategray;
+  }
+}

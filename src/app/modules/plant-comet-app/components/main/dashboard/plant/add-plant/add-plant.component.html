@@ -1,0 +1,36 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+  <h1>Dodaj kwiatek</h1>
+  <label>Nazwa kwiatka</label>
+  <input
+    type="text"
+    name="plantName"
+    placeholder="Wpisz nazwe rosliny"
+    [(ngModel)]="plant.plantName"
+    #plantName="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && plantName.invalid }"
+    required
+    minlength="4"
+  />
+  <div *ngIf="f.submitted && plantName.invalid" class="input-error">
+    <div *ngIf="plantName.errors.required">Nazwa wymagana!</div>
+    <div *ngIf="plantName.errors.minlength">
+      Nazwa musi mieć co najmniej 4 znaki!
+    </div>
+  </div>
+  <label>Data podlania</label>
+  <input
+    type="date"
+    name="plantWateringDate"
+    placeholder="Wpisz hasło"
+    [(ngModel)]="plant.plantWateringDate"
+    #plantWateringDate="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && plantWateringDate.invalid }"
+    required
+  />
+  <div *ngIf="f.submitted && plantWateringDate.invalid" class="input-error">
+    <div *ngIf="plantWateringDate.errors.required">Data wymagana!</div>
+  </div>
+  <button class="button" type="submit">
+    Dodaj kwiatka
+  </button>
+</form>

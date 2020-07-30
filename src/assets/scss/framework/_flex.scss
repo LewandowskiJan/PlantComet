@@ -1,0 +1,231 @@
+//#############      #############
+//############# FLEX #############
+//#############      #############
+
+//############# PLACEHOLDERS #############
+
+//#### flex display ####
+%display-flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+%display-flex-inline {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+//#### flex-direction ####
+//row
+%flex-direction-row {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+// row-reverse
+%flex-direction-row-rev {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+// column
+%flex-direction-col {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+// column-reverse
+%flex-direction-col-rev {
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+//#### flex-wrap ####
+// wrap
+%flex-wrap {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+// nowrap
+%flex-nowrap {
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+// wrap-reverse
+%flex-wrap-rev {
+  -webkit-flex-wrap: wrap-reverse;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+//#### justify-content ####
+// center
+%flex-v-center {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+// flex-start
+%flex-v-start {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
+}
+
+// flex-end
+%flex-v-end {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  justify-content: flex-end;
+}
+
+// space-between
+%flex-v-space-between {
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+}
+
+// space-around
+%flex-v-space-around {
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+//#### align-content ####
+// center
+%flex-content-center {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+// flex-start
+%flex-content-start {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+// flex-end
+%flex-content-end {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+// space-between
+%flex-content-space-between {
+  -webkit-align-items: space-between;
+  -ms-flex-align: space-between;
+  align-items: space-between;
+}
+
+// space-around
+%flex-content-space-around {
+  -webkit-align-items: space-around;
+  -ms-flex-align: space-around;
+  align-items: space-around;
+}
+
+//#### align-items ####
+// center
+%flex-h-center {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+// flex-start
+%flex-h-start {
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: flex-start;
+  align-content: flex-start;
+}
+
+// flex-end
+%flex-h-end {
+  -webkit-align-content: flex-end;
+  -ms-flex-line-pack: flex-end;
+  align-content: flex-end;
+}
+
+// baseline
+%flex-h-baseline {
+  -webkit-align-content: baseline;
+  -ms-flex-line-pack: baseline;
+  align-content: baseline;
+}
+
+// stretch
+%flex-h-stretch {
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+//#### align-self ####
+// center
+%flex-align-self-center {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+// flex-start
+%flex-align-self-start {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  align-self: flex-start;
+}
+
+// flex-end
+%flex-align-self-end {
+
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
+}
+
+// baseline
+%flex-align-self-baseline {
+  -webkit-align-self: baseline;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+}
+
+// stretch
+%flex-align-self-stretch {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+
+
+
+//############# MIXINS #############
+
+@mixin flex-order($order) {
+  -webkit-order: $order;
+  -ms-flex-order: $order;
+  order: $order;
+}
+
+@mixin flex($flex-grow, $flex-shrink, $flex-basis) {
+  -webkit-flex: $flex-grow $flex-shrink $flex-basis;
+  -ms-flex: $flex-grow $flex-shrink $flex-basis;
+  flex: $flex-grow $flex-shrink $flex-basis;
+}

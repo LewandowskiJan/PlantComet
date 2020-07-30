@@ -1,0 +1,49 @@
+@import 'src/styles/global.scss';
+
+$form-background: $dark-background-color-secondary;
+$button-background: $dark-button-background-color-primary;
+$button-background-hover: $dark-button-background-color-secondary;
+$button-font-color: white;
+$box-border-color: black;
+
+$input-error-background: #950000;
+$input-error-font: #ffbebe;
+
+main {
+  justify-content: center;
+  display: flex;
+
+  section {
+    flex-direction: column;
+    align-content: center;
+
+    h1 {
+      margin: 0 0 10px 0;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 5px;
+      background-color: rgba($color: $dark-background-color-secondary, $alpha: 0.3);
+
+  
+
+      aside {
+        margin-top: 30px;
+
+        @media only screen and (min-width: 768px) {
+          margin-left: 10px;
+          margin-top: 0;
+        }
+      }
+
+
+      @media only screen and (min-width: 768px) {
+        flex-direction: row;
+        padding: 20px;
+      }
+    }
+  }
+}

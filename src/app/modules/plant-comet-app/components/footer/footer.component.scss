@@ -1,0 +1,24 @@
+@import 'src/styles/global.scss';
+
+$form-background: $dark-background-color-primary;
+$button-font-color: white;
+
+
+footer {
+  background-color: $form-background;
+  color: $button-font-color;
+
+  nav {
+    display: flex;
+    height: 120px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    a{
+      color: $dark-button-font-color-primary;
+      text-decoration: none;
+    }
+  }
+}

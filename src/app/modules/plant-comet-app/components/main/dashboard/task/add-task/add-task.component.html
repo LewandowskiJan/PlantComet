@@ -1,0 +1,49 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+  <h1>Dodaj zadanie</h1>
+  <label>Opis zadania</label>
+  <input
+    type="text"
+    name="taskDescription"
+    placeholder="Opisz zadanie"
+    [(ngModel)]="task.description"
+    #taskDescription="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskDescription.invalid }"
+    required
+    minlength="4"
+  />
+  <div *ngIf="f.submitted && taskDescription.invalid" class="input-error">
+    <div *ngIf="taskDescription.errors.required">Opis wymagany!</div>
+    <div *ngIf="taskDescription.errors.minlength">
+      Opis musi mieć co najmniej 4 znaki!
+    </div>
+  </div>
+  <label>Priorytet</label>
+  <select
+    name="taskPriority"
+    [(ngModel)]="task.priority"
+    #taskPriority="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskPriority.invalid }"
+    required
+  >
+    <option *ngFor="let enum of priority | keyvalue">{{ enum.value }}</option>
+  </select>
+  <div *ngIf="f.submitted && taskPriority.invalid" class="input-error">
+    <div *ngIf="taskPriority.errors.required">Priorytet wymagany!</div>
+  </div>
+  <label>Status</label>
+  <select
+    name="taskStatus"
+    [(ngModel)]="task.status"
+    #taskStatus="ngModel"
+    [ngClass]="{ 'is-invalid': f.submitted && taskStatus.invalid }"
+    required
+  >
+    <option *ngFor="let enum of status | keyvalue">{{ enum.value }}</option>
+  </select>
+  <div *ngIf="f.submitted && taskStatus.invalid" class="input-error">
+    <div *ngIf="taskStatus.errors.required">Priorytet wymagany!</div>
+  </div>
+  <button class="button" type="submit">
+    Dodaj zadanie
+  </button>
+</form>

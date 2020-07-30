@@ -1,0 +1,24 @@
+<div class="menu-box">
+  <div *ngIf="!authService.isLoggedIn">
+    <button
+      routerLinkActive="active"
+      routerLink="/plant-comet/login"
+      (click)="toggleDropDownMenu()"
+    >
+      Zaloguj się
+    </button>
+    <button
+      routerLinkActive="active"
+      routerLink="/plant-comet/register"
+      (click)="toggleDropDownMenu()"
+    >
+      Zarejestruj się
+    </button>
+  </div>
+  <div *ngIf="authService.isLoggedIn">
+    <div>{{ authService.user?.email }}</div>
+    <button (click)="authService.logout()" (click)="toggleDropDownMenu()">
+      Wyloguj się
+    </button>
+  </div>
+</div>

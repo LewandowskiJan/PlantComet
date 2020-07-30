@@ -1,0 +1,69 @@
+{
+  "name": "plant-comet",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "e2e": "ng e2e",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "ng lint",
+    "dependency-cruiser": "depcruise --config .dependency-cruiser.json src"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "commitlint -e %HUSKY_GIT_PARAMS% && depcruise --config .dependency-cruiser.json src && ng test",
+      "pre-push": "npm test"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~9.1.9",
+    "@angular/common": "~9.1.9",
+    "@angular/compiler": "~9.1.9",
+    "@angular/core": "~9.1.9",
+    "@angular/fire": "^6.0.0",
+    "@angular/forms": "~9.1.9",
+    "@angular/platform-browser": "~9.1.9",
+    "@angular/platform-browser-dynamic": "~9.1.9",
+    "@angular/router": "~9.1.9",
+    "angularfire2": "^5.4.2",
+    "firebase": "^7.15.1",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.901.7",
+    "@angular/cli": "~9.1.7",
+    "@angular/compiler-cli": "~9.1.9",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-angular": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "chai": "^4.2.0",
+    "codelyzer": "^5.1.2",
+    "dependency-cruiser": "^9.8.0",
+    "husky": "^4.2.5",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "^5.1.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage-istanbul-reporter": "~2.1.0",
+    "karma-jasmine": "~3.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "karma-mocha": "^2.0.1",
+    "mocha": "^8.0.1",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~3.8.3"
+  }
+}

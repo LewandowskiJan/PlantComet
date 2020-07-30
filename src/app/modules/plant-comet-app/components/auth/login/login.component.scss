@@ -1,0 +1,65 @@
+@import 'src/styles/global.scss';
+
+$form-background: $dark-background-color-secondary;
+$button-background: $dark-button-background-color-primary;
+$button-background-hover: $dark-button-background-color-secondary;
+$button-font-color: white;
+$box-border-color: black;
+$button-google-color: #4285F4;
+
+$input-error-background: #950000;
+$input-error-font: #ffbebe;
+
+main {
+  justify-content: center;
+  display: flex;
+
+
+  section {
+    flex-direction: column;
+    align-content: center;
+
+    h1 {
+      margin: 0 0 10px 0;
+    }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 5px;
+      background-color: rgba($color: $form-background, $alpha: 0.3);
+
+      aside {
+        margin-top: 30px;
+
+        @media only screen and (min-width: 768px) {
+          margin-left: 10px;
+          margin-top: 0;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        flex-direction: row;
+        padding: 20px;
+      }
+    }
+  }
+}
+
+// @extend %button-google-singin;
+
+.button-signin-google-dark {
+  background-color: $button-google-color;
+
+  img {
+    width: 50px;
+    margin: 0;
+    padding: 0;
+  }
+
+  span {
+    margin: 0 12px 0 12px;
+    color: $button-font-color;
+  }
+}

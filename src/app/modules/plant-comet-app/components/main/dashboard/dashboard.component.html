@@ -1,0 +1,35 @@
+<main>
+  <section>
+    <!-- <h1>Sky is the limit!</h1> -->
+
+    <app-add-task></app-add-task>
+
+    <figure *ngFor="let task of tasks | async">
+      <button class="button" (click)="deleteTask(task.id)">usun</button>
+      <h2>{{ task.priority }}</h2>
+      <figcaption>
+        <cite>{{ task.status }}</cite>
+        <ul>
+          <li>
+            start date: {{ task.startDate.seconds * 1000 | date: "yyyy/MM/dd" }}
+          </li>
+          <li>
+            end date: {{ task.endDate.seconds * 1000 | date: "yyyy/MM/dd" }}
+          </li>
+        </ul>
+      </figcaption>
+      <blockquote>
+        {{ task.description }}
+        <br />
+        userId: {{ task.userShared[0] }}
+      </blockquote>
+      {{ task.id }}
+      <button class="button" (click)="editTask(task.id)">Edytuj</button>
+      <div class="hidden" id="{{ task.id }}">
+        <app-edit-task [id]="task?.id"></app-edit-task>
+      </div>
+    </figure>
+  </section>
+
+  <aside></aside>
+</main>

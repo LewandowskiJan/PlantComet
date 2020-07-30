@@ -1,0 +1,68 @@
+<main>
+  <section>
+    <div class="form-box">
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+        <h1>Zaloguj się</h1>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Wpisz email"
+          [(ngModel)]="model.email"
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+          required
+          email
+        />
+        <div *ngIf="f.submitted && email.invalid" class="input-error">
+          <div *ngIf="email.errors.required">Email wymagany!</div>
+          <div *ngIf="email.errors.email">
+            Email nie poprawny!
+          </div>
+        </div>
+        <label>Hasło:</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Wpisz hasło"
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+          required
+          minlength="6"
+        />
+        <div *ngIf="f.submitted && password.invalid" class="input-error">
+          <div *ngIf="password.errors.required">Hasło wymagane!</div>
+          <div *ngIf="password.errors.minlength">
+            Hasło musi mieć co najmniej 6 znaków!
+          </div>
+        </div>
+        <div
+          class="input-error"
+          *ngIf="f.submitted && authService.passwordOrEmailWrongError"
+        >
+          Hasło lub email nieprawidłowe!
+        </div>
+        <button class="button" type="submit">
+          Login
+        </button>
+        <p>
+          Jeżeli nie masz jeszcze konta,
+          <a routerLink="/plant-comet/register">Zarejestuj się</a>
+        </p>
+      </form>
+      <aside>
+        <h1>Możesz również skorzystać z:</h1>
+        <button
+          class="button button-signin-google-dark"
+          (click)="authService.loginWithGoogle()"
+        >
+          <img
+            src="./../../../../../../assets/icon/google/btn_google_light_normal_ios.svg"
+          />
+          <span>Zaloguj się kontem google</span>
+        </button>
+      </aside>
+    </div>
+  </section>
+</main>

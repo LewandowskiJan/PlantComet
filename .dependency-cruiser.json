@@ -1,0 +1,11 @@
+{
+  "forbidden": [
+    {
+      "name": "not-to-test",
+      "comment": "don't allow dependencies from outside the test folder to test",
+      "severity": "error",
+      "from": { "pathNot": "^test" },
+      "to": { "path": "^test" }
+    }
+  ]
+}

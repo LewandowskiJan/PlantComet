@@ -1,0 +1,91 @@
+@import './reset.scss';
+@import './../assets/scss/global.scss';
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+
+main {
+  width: 100%;
+  min-height: 100vh;
+
+  section {
+    width: 100%;
+
+    @media only screen and (min-width: 768px) {
+      width: 85%;
+      margin: 30px 0 30px 0;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      width: 80%;
+      margin: 45px 0 45px 0;
+    }
+  }
+}
+
+footer,
+header {
+  width: 100%;
+
+  nav {
+    width: 90%;
+
+    @media only screen and (min-width: 768px) {
+      width: 85%;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      width: 80%;
+    }
+  }
+}
+
+
+
+
+
+%default-border {
+  @media only screen and (min-width: 768px) {
+    border: solid 1px #dbdbdb;
+  }
+}
+
+%text-format {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.none {
+  display: none;
+}
+
+//transfers details
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.31px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.31px;
+}
+
+
+// events
+.bg--darkred {
+  background-color: darkred;
+}
+
+.bg--darkgreen {
+  background-color: darkgreen;
+}
+
+.bg--gold {
+  background-color: #868400;
+}
