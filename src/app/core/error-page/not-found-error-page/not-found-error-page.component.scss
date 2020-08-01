@@ -1,0 +1,96 @@
+$white-four: #f8f8f8;
+$greyish:#b6b6b6;
+$dark-blue-green-two: #004134;
+$margin-big: 25px;
+$margin-medium: 20px;
+$dirty-purple: #736163;
+$white-three: #dadada;
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: $margin-big;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 730px;
+    border: solid 1px $greyish;
+    background-color: $white-four;
+
+    h1,
+    h2,
+    p,
+    button {
+      font-family: TrebuchetMS "sans-serif";
+      font-weight: bold;
+      color: $dark-blue-green-two;
+    }
+
+    h1 {
+      margin-top: $margin-medium;
+      height: 26px;
+      font-size: 36px;
+    }
+
+    img {
+      margin-top: $margin-medium;
+      width: 172px;
+      height: 171px;
+      object-fit: contain;
+    }
+
+    h2 {
+      margin-top: $margin-medium;
+      width: 83px;
+      height: 93px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: $margin-medium;
+      width: 310px;
+      height: 64px;
+      box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.15);
+      background-color: #00a651;
+
+      border: none;
+      font-size: 24px;
+      text-align: center;
+      color: #fff;
+
+      &:hover {
+        background-color: #3aa36d;
+      }
+
+      &:focus {
+        background-color: $dark-blue-green-two;
+      }
+    }
+
+    .console-log-container {
+      margin-top: $margin-medium;
+      width: 540px;
+      height: 240px;
+      box-shadow: inset 0px 5px 10px 0 rgba(0, 0, 0, 0.35);
+      background-color: $white-three;
+      padding: 25px;;
+
+      p {
+        margin-top: 5px;
+        font-size: 12px;
+        text-align: left;
+        color: $dirty-purple;
+        line-height: 1.2em;
+      }
+    }
+
+  }
+
+  @media only screen and (min-width: 768px) {}
+
+  @media only screen and (min-width: 1024px) {}
+}
