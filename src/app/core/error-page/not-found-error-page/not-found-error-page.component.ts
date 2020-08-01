@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundErrorPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
+  }
+
+  back(){
+    this.router.navigate(['plant-comet/dashboard']);
   }
 
 }
