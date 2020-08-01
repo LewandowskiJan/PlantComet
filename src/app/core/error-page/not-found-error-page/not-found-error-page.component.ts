@@ -16,5 +16,4 @@ export class NotFoundErrorPageComponent implements OnInit {
   back(){
     this.router.navigate(['plant-comet/dashboard']);
   }
-
 }
