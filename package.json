@@ -57,7 +57,7 @@
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "karma-mocha": "^2.0.1",
-    "mocha": "^8.0.1",
+    "mocha": "^8.4.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "protractor": "~7.0.0",
